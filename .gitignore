@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.vite/
+*.local
+
+# Temporary captures and generated previews
+public/generated/
+tmp/
+.capture-runtime/
+.env
+.env.production
+test-results/
+playwright-report/
+
+# Material local de referencia, no destinado al repositorio público.
+/Contexto del servidor Debian y despliegue.pdf
+/Yo.jpg

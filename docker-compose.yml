@@ -1,0 +1,33 @@
+name: lucas-portfolio
+services:
+  portfolio:
+    image: lucas-portfolio:${PORTFOLIO_TAG:-preview}
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-}
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    cpus: 0.5
+    pids_limit: 64
+    expose:
+      - "8080"
+    networks:
+      proxy:
+        aliases:
+          - lucas-portfolio
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+networks:
+  proxy:
+    external: true

@@ -1,0 +1,6 @@
+# PENDIENTE: sustituir portfolio.example.invalid por el dominio real.
+# Agregar ESTE bloque al Caddyfile existente; no reemplazar sus otros sitios.
+portfolio.example.invalid {
+    encode zstd gzip
+    reverse_proxy lucas-portfolio:8080
+}
