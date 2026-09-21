@@ -10,9 +10,9 @@ El 20 de septiembre se preparó también la opción de GitHub Pages para `prince
 
 Lucas prefirió una URL gratuita con su nombre sin renombrar la cuenta `Princeps13`. Se eligió provisionalmente la organización `Lucas-Rodriguez00` y la dirección `lucas-rodriguez00.github.io`, pendientes de confirmación de disponibilidad y creación en GitHub. No se publicó el sitio.
 
-Actualización del 20 de septiembre: Lucas finalmente renombró su cuenta personal a `Lucas-Rodriguez00` y GitHub confirmó el nuevo login. La dirección preparada no cambia, pero ya no requiere una organización. El repositorio público de Pages fue creado; la publicación sigue pendiente.
+Actualización del 20 de septiembre: Lucas finalmente renombró su cuenta personal a `Lucas-Rodriguez00` y GitHub confirmó el nuevo login. La dirección preparada no cambia y no requiere una organización. El repositorio público de Pages fue creado y el sitio está publicado en `https://lucas-rodriguez00.github.io/`.
 
-Lucas pidió posteriormente preparar el enlace público del sitio. La publicación continúa siendo manual y aún no se ejecutó; la restricción inicial de no publicar se conserva como antecedente, no como estado actual de su intención.
+Lucas pidió posteriormente preparar el enlace público del sitio. La publicación se ejecutó una vez mediante el workflow manual; la restricción inicial de no publicar se conserva como antecedente, no como estado actual de su intención. Las siguientes actualizaciones también requieren ejecución manual.
 
 Lucas pidió hacer visible que también trabaja con sistemas embebidos y electrónica. Esta faceta aparece en el perfil y en los proyectos propios, sin atribuirle en solitario el trabajo del radar académico grupal.
 

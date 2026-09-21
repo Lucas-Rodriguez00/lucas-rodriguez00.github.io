@@ -59,38 +59,39 @@ Registrar la etiqueta vigente y conservar su imagen, el `.env` y una copia del C
 
 Para rollback, restaurar la etiqueta anterior en `.env` y ejecutar el mismo comando con `--no-build`. No hay migraciones ni volúmenes de aplicación. Si cambió Caddy, restaurar la copia verificada, validar y recargar. No eliminar imágenes anteriores durante la verificación.
 
-## GitHub Pages — preparado, todavía no publicado
+## GitHub Pages — publicado
 
-Dirección elegida para el sitio de la cuenta personal: `https://lucas-rodriguez00.github.io/`. GitHub confirmó que el login de Lucas ahora es `Lucas-Rodriguez00` y que el repositorio `Lucas-Rodriguez00/lucas-rodriguez00.github.io` existe, es público y está bajo su cuenta. La URL será real únicamente después de que GitHub Pages complete su primer despliegue. No se usa Docker ni el servidor propio para esta opción.
+Sitio de la cuenta personal: `https://lucas-rodriguez00.github.io/`. GitHub confirmó que el login de Lucas ahora es `Lucas-Rodriguez00` y que el repositorio `Lucas-Rodriguez00/lucas-rodriguez00.github.io` existe, es público y está bajo su cuenta. GitHub Pages sirve la compilación estática de `dist/`. No se usa Docker ni el servidor propio para esta opción.
 
-Consulta de solo lectura del 20/9: la cuenta conectada es `Lucas-Rodriguez00` y el repositorio nuevo es público, vacío y permite administrar contenido. La creación del repositorio fue realizada por Lucas.
+Consulta previa al primer push del 20/9: la cuenta conectada era `Lucas-Rodriguez00` y el repositorio recién creado por Lucas estaba público y vacío.
 
-El archivo `.github/workflows/pages.yml` usa `workflow_dispatch`: **subir el código no publica la web**. Al ejecutarlo manualmente, instala dependencias, corre typecheck/lint/pruebas/build, compila con `SITE_URL=https://lucas-rodriguez00.github.io` y publica `dist/`. La URL canónica, Open Graph, robots y sitemap se generan durante ese build. Los builds locales sin `SITE_URL` siguen siendo previews no indexables.
+El archivo `.github/workflows/pages.yml` usa `workflow_dispatch`: **subir cambios al código no actualiza la web**. Al ejecutarlo manualmente, instala dependencias, corre typecheck/lint/pruebas/build, compila con `SITE_URL=https://lucas-rodriguez00.github.io` y publica `dist/`. La URL canónica, Open Graph, robots y sitemap se generan durante ese build. Los builds locales sin `SITE_URL` siguen siendo previews no indexables.
 
-### Activación futura
+### Activación realizada el 20/9/2026
 
-1. Repositorio público y vacío creado por Lucas en su cuenta personal: `Lucas-Rodriguez00/lucas-rodriguez00.github.io`. GitHub Pages de usuario en un repositorio público está incluido en GitHub Free.
-2. Propietario verificado: la cuenta personal renombrada, no una organización nueva.
-3. Revisar el código y los archivos a subir. `.gitignore` excluye `node_modules/`, `dist/`, `.env`, capturas temporales, el PDF local del servidor y `Yo.jpg`. La carpeta `contexto/` se conserva en el repositorio; comprobar que sus notas sigan siendo publicables.
-4. Esta carpeta aún no es un repositorio Git. Antes de subirla, inicializarla y conectar el remoto desde PowerShell en la raíz del proyecto:
+1. Lucas creó el repositorio público vacío en su cuenta personal. Se revisaron los archivos a subir: `.gitignore` excluye `node_modules/`, `dist/`, `.env`, capturas temporales, el PDF local del servidor y `Yo.jpg`.
+2. Se inicializó Git con rama `main`, autor específico de este repositorio y correo `noreply`, y se subió el primer commit `5cf3665` al remoto.
+3. GitHub inicialmente publicó la raíz del código fuente mediante el modo `legacy`; eso mostraba una página en blanco porque Vite requiere compilación. Se cambió el origen de Pages a `workflow` sin alterar la visibilidad pública del repositorio.
+4. Se ejecutó manualmente `Publicar portafolio en GitHub Pages` (run `35549017080`). La compilación y el despliegue terminaron correctamente.
+5. Se verificó la landing renderizada en el navegador y respuestas HTTP 200 para raíz, casos de Compras, Radar y Murfi, `robots.txt`, `sitemap.xml` e imagen social. El HTML público contiene assets compilados y canonical `https://lucas-rodriguez00.github.io/`.
+
+### Próximas actualizaciones
+
+La carpeta local ya tiene remoto `origin` y rama `main`. Después de cada cambio, revisar los archivos, ejecutar `npm run verify`, hacer commit y push. Luego abrir **Actions → Publicar portafolio en GitHub Pages → Run workflow** en `main`; el push solo no despliega. Revisar el run y la web pública. No cambiar Pages de regreso a “Deploy from a branch” porque serviría los archivos fuente sin compilar.
+
+Comandos de referencia para futuras actualizaciones de esta carpeta (Git y el remoto ya están configurados):
 
 ```powershell
-git init -b main
-git config user.name "Lucas Rodríguez"
-git config user.email "131674789+Lucas-Rodriguez00@users.noreply.github.com"
+git status --short
+npm run verify
 git add .
-git diff --cached --name-only
+git diff --cached --check
 git diff --cached
-git commit -m "Preparar portafolio"
-git remote add origin https://github.com/Lucas-Rodriguez00/lucas-rodriguez00.github.io.git
-git push -u origin main
+git commit -m "Actualizar portafolio"
+git push
 ```
 
-5. En el repositorio personal abrir **Settings → Pages** y elegir **GitHub Actions** como origen de publicación.
-6. Abrir **Actions → Publicar portafolio en GitHub Pages → Run workflow** en la rama `main`. Esta acción sí publica la página. Esperar a que termine correctamente y abrir la dirección indicada por GitHub.
-7. Comprobar inicio, casos de estudio, imágenes, contacto, favicon, `/robots.txt` y `/sitemap.xml`. Revisar el HTML de las páginas para confirmar URL canónica y `index, follow`. Verificar que ningún enlace interno vaya a `127.0.0.1`.
-
-Las actualizaciones posteriores requieren volver a ejecutar el workflow manualmente. Si Lucas prefiere publicación automática en cada push, cambiar el disparador solo después de acordarlo. Un repositorio de proyecto bajo `/nombre-del-repositorio/` requeriría adaptar `base` de Vite y las rutas absolutas; **no** está configurado para esa variante.
+Si Lucas prefiere publicación automática en cada push, cambiar el disparador solo después de acordarlo. Un repositorio de proyecto bajo `/nombre-del-repositorio/` requeriría adaptar `base` de Vite y las rutas absolutas; **no** está configurado para esa variante.
 
 Referencias: [GitHub Pages: sitios de usuario](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), [activar GitHub Actions como origen](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), [ejecutar un workflow manualmente](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow) y [despliegue de Vite](https://vite.dev/guide/static-deploy.html).
 

@@ -153,6 +153,12 @@ Se generó un concepto de dirección para validar ritmo, jerarquía, tratamiento
 - Antes del primer commit se revisó el listado de archivos y patrones comunes de secretos. El PDF de contexto del servidor, la fotografía original y las salidas temporales quedan excluidos por `.gitignore`; el commit usará un correo `noreply` específico de este repositorio para no publicar la identidad de correo configurada globalmente.
 - La publicación sigue siendo una acción manual: un push no activa el workflow `workflow_dispatch`.
 
+### 2026-09-20 — Primera publicación en GitHub Pages
+
+- El primer commit local `5cf3665` se subió a `main` en `Lucas-Rodriguez00/lucas-rodriguez00.github.io`. Contiene 68 archivos revisados; se excluyeron PDF local, foto original, dependencias y salidas temporales.
+- GitHub creó automáticamente un sitio de Pages con `build_type=legacy` y fuente `main/`: servía el `index.html` sin compilar y la pantalla quedaba en blanco. Se cambió Pages a `build_type=workflow` y se ejecutó el workflow manual `35549017080` con la credencial Git existente, sin registrar ni mostrar el token. Todos sus pasos terminaron correctamente.
+- Se observó la landing real con hero, retrato, enlaces al perfil nuevo, Murfi, casos y contacto. HTTP 200 para raíz, tres casos, robots, sitemap e imagen social; el HTML público incluye el bundle compilado y canonical correcto. La publicación de futuras versiones sigue siendo manual.
+
 ### 2026-09-20 — Identidad, proyectos y estado actualizado
 
 - Lucas proporcionó el logo de Murfi y pidió usarlo en la experiencia actual. Se optimizó a WebP y se colocó junto al nombre de la empresa. El caso profesional sigue sin mostrar capturas o material interno.

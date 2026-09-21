@@ -38,7 +38,7 @@ Opciones de QA: `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` usa un Chromium existente;
 
 ## Alojamiento
 
-GitHub Pages está preparado para el sitio de la cuenta personal `Lucas-Rodriguez00` en `https://lucas-rodriguez00.github.io/`. El repositorio público `Lucas-Rodriguez00/lucas-rodriguez00.github.io` ya existe. El workflow `.github/workflows/pages.yml` compila con esa URL y se ejecuta **solo manualmente**; la dirección no estará publicada hasta activar Pages y ejecutar el workflow. Ver los pasos de activación en `contexto/DESPLIEGUE.md`.
+El sitio está publicado en `https://lucas-rodriguez00.github.io/` desde el repositorio público `Lucas-Rodriguez00/lucas-rodriguez00.github.io`. GitHub Pages usa GitHub Actions, no la raíz del código fuente. El workflow `.github/workflows/pages.yml` compila con esa URL y se ejecuta **solo manualmente**: futuros pushes no actualizan la web hasta volver a ejecutarlo. Ver operación y verificación en `contexto/DESPLIEGUE.md`.
 
 Para una compilación local o en el servidor propio, copiar `.env.example` a `.env` y completar `SITE_URL` con el origen HTTPS correspondiente. Mientras esté vacío se genera una preview con `noindex`, robots cerrado y sitemap sin URLs inventadas. Cambiar el dominio requiere recompilar. El servidor propio sigue preparado con Nginx sin privilegios detrás de Caddy; no se desplegó allí.
 
