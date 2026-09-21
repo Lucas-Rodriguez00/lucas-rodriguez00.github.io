@@ -158,6 +158,7 @@ Se generó un concepto de dirección para validar ritmo, jerarquía, tratamiento
 - El primer commit local `5cf3665` se subió a `main` en `Lucas-Rodriguez00/lucas-rodriguez00.github.io`. Contiene 68 archivos revisados; se excluyeron PDF local, foto original, dependencias y salidas temporales.
 - GitHub creó automáticamente un sitio de Pages con `build_type=legacy` y fuente `main/`: servía el `index.html` sin compilar y la pantalla quedaba en blanco. Se cambió Pages a `build_type=workflow` y se ejecutó el workflow manual `35549017080` con la credencial Git existente, sin registrar ni mostrar el token. Todos sus pasos terminaron correctamente.
 - Se observó la landing real con hero, retrato, enlaces al perfil nuevo, Murfi, casos y contacto. HTTP 200 para raíz, tres casos, robots, sitemap e imagen social; el HTML público incluye el bundle compilado y canonical correcto. La publicación de futuras versiones sigue siendo manual.
+- Git inicialmente detectó propietario distinto de la carpeta `.git` al usarse fuera del entorno aislado. Se agregó **solo esta carpeta** a `safe.directory` en la configuración Git del usuario y se comprobó `git status`, historial y remoto sin errores; el árbol de trabajo quedó limpio.
 
 ### 2026-09-20 — Identidad, proyectos y estado actualizado
 
